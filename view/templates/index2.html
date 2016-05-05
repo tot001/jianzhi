@@ -1,0 +1,155 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
+	<script type="text/javascript" src="{% static "js/index.js"%}"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">
+	</script>
+	<!-- <link rel="stylesheet" type="text/css" href="{% static "css/idangerous.swiper.css" %}"> -->
+	<title>盟</title>
+</head>
+<body >
+
+<div id="menus-warp" class="auto">		
+	<ul>
+		<li id="area_hide">
+			<span>区域</span>
+			<i></i>
+		</li>
+
+		<li id="category_hide">
+			<a href="/"><span>首页</span></a>
+			<i></i>
+		</li>
+
+		<li id="search_hide">
+			<span>搜索</span>
+		</li>
+
+	</ul>
+
+	<script type="text/javascript" src="{% static "js/index.js"%}"></script>
+</div>
+
+
+<div class="swiper-container">
+	<div id="list" class="swiper-wrapper auto">
+
+		<div class="swiper-slide">
+			<ul id="list_area">				
+				<li><a href="/san_xiang">三乡</a></li>
+				<li><a href="/bf">板芙</a></li>
+				<li><a href="/sw">神湾</a></li>
+				<li><a href="/tz">坦洲</a></li>
+				<li><a href="/wgs">五桂山</a></li>
+				<li><a href="/hjkfq">开发区</a></li>
+				<li><a href="/">全部</a></li>
+			</ul>
+		</div>
+		<div class="swiper-slide ">
+			<ul id="list_area">			
+				<li><a href="/fs">阜沙</a></li>
+				<li><a href="/xl">小榄</a></li>
+				<li><a href="/ds">东升</a></li>
+				<li><a href="/gz">古镇</a></li>
+				<li><a href="/hl">横栏</a></li>
+				<li><a href="/sj">三角</a></li>
+				<li><a href="/mz">民众</a></li>
+				<li><a href="/nl">南朗</a></li>
+				<li><a href="/sha_xi">沙溪</a></li>
+			</ul>
+		</div>
+		<div class="swiper-slide ">
+			<ul id="list_area">
+				<li><a href="/sq">石岐</a></li>
+				<li><a href="/dq">东区</a></li>
+				<li><a href="/xq">西区</a></li>
+				<li><a href="/nq">南区</a></li>
+				<li><a href="/gk">港口</a></li>
+				<li><a href="/dc">大涌</a></li>
+				<li><a href="/hp">黄埔</a></li>
+				<li><a href="/nt">南头</a></li>
+				<li><a href="/df">东凤</a></li>	
+			</ul>	
+		</div>
+	</div>
+	<div id="list_pagination">
+			<div class="pagination"></div>
+	</div>
+</div>
+
+<script src="{% static "js/jquery-1.10.1.min.js" %}"></script>
+<script src="{% static "js/idangerous.swiper.min.js" %}"></script>
+ <script>
+  var mySwiper = new Swiper('.swiper-container',{
+    pagination: '.pagination',
+    paginationClickable: true,
+    centeredSlides: true,
+    slidesPerView: 1,
+    watchActiveIndex: true
+  })
+ </script>
+
+
+<div id="menus_header" class="auto">
+	<div id="seracn">
+<!-- 		<a href="/upload/" id="fabu">发布信息</a> -->
+		<form action="/search" method="get" class="ks">
+			<input type="search" class="keywork" name="user_search" placeholder="输入你想要的职位！">
+			<input type="submit" value="搜索" class="btn" >
+		</form>
+
+	</div>
+
+</div>
+
+	
+	<div id="con" class="auto">
+	{% for i in db %}
+			<div class="tb_one">
+				<a href="/in/?in={{ i.id }}">
+					<h3 class="tb_h3">{{ i.title }}</h3>
+				<div class="tb_jq">
+					{{i.jing_er}}{{ i.day_hw }}
+					<p> {{ i.timer|timesince}}</p>
+				</div>
+					<div class="tb_dd">工作地址：{{ i.di_zhi }}</div>
+					<div class="tb_sj"> 工作时间：{{ i.shi_jian }} - {{ i.shi_jian2 }}</div>
+				</a>
+				</div>
+{% endfor %}
+			</div>
+
+
+<div id="tb_page" class="auto">
+{% if db.has_previous %}
+	<a id="prev_page" href="?page={{ db.previous_page_number }}">&lt; Prev</a>
+	{% endif %}
+{% for page_number in db.paginator.page_range %}
+	{% ifequal page_number db.number %}
+		{{ page_number }}
+	{% else %}
+		<a href="?page={{ page_number }}">{{ page_number }}</a>
+	{% endifequal %}
+{% endfor %}
+	
+{% if db.has_next %}
+	<a id="next_page" href="?page={{ db.next_page_number }}">Next &gt;</a>
+{% endif %}
+	
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

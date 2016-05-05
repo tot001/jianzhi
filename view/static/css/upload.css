@@ -1,0 +1,114 @@
+*{
+	font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+	font-size: 14px;
+}
+input{
+	border: 1px solid;
+    border-color: #ccc #ccc #ccc #ccc;
+    border-radius: 4px;
+    height: 25px;
+    width: 155px;
+}
+
+#upheader{
+	height: 40px;
+    padding: 10px 40px;
+	background-color: #5B9DBD;
+}
+
+
+#fb_box span{
+	color: #E47979;
+	opacity:0;
+} 
+#fb_box i {
+	color: #E47979;
+}
+
+#fb_box tr{
+	margin-bottom: 10px;
+}
+
+#fb_box tr th {
+	color:#585858;
+	font-weight: normal;
+	padding-right: 10px;
+	font-size: 15px;
+	
+}
+#fb_box td {
+	padding:7px 0 7px 0;
+}
+.txt_line input{
+    font-size: 10px;
+    text-indent: 5px;
+}
+/*招聘*/
+#id_zhao_ping::-webkit-outer-spin-button {
+     -webkit-appearance: none;	
+}
+#id_zhao_ping::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+ }
+/*简介*/
+ #txt_introduction{
+	resize: none;
+	height: 86px;
+	width: 350px;
+	padding:0px 5px 0px 5px;
+}
+/*工作地址*/
+#id_area{
+	border: 1px solid;
+    border-color: #ccc #ccc #ccc #ccc;
+    padding: 0px 5px 0px 5px;
+    border-radius: 4px;
+    height: 25px;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    color: #585858;
+    font-size:15px;
+}
+/*工作时间*/
+
+/*工资*/
+#id_day_hw{
+	border: 1px solid;
+    border-color: #ccc #ccc #ccc #ccc;
+    padding: 0px 5px 0px 5px;
+    border-radius: 4px;
+    height: 25px;
+	font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    color: #585858;
+    font-size:15px;
+}
+
+#id_jing_er::-webkit-outer-spin-button {
+     -webkit-appearance: none;	
+}
+#id_jing_er::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+}
+/*结算*/
+#id_jie_suan{
+	border: 1px solid;
+    border-color: #ccc #ccc #ccc #ccc;
+    padding: 0px 5px 0px 5px;
+    border-radius: 4px;
+    height: 25px;
+	font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    color: #585858;
+    font-size:15px;	
+}
+
+/*联系方式*/
+
+/*提交*/
+#txt_tijiao{
+	background: #79aec8;
+	border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+   height: 30px;
+	width: 100px;
+}
