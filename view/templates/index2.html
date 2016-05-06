@@ -125,7 +125,7 @@
 			</div>
 
 
-<div id="tb_page" class="auto">
+<!-- <div id="tb_page" class="auto">
 {% if db.has_previous %}
 	<a id="prev_page" href="?page={{ db.previous_page_number }}">&lt; Prev</a>
 	{% endif %}
@@ -141,8 +141,21 @@
 	<a id="next_page" href="?page={{ db.next_page_number }}">Next &gt;</a>
 {% endif %}
 	
-</div>
+</div> -->
+<p><span id='result'></span></p>
 
+<button id=sum>sadf</button>
+<script>
+	$(document).ready(function(){
+      $("#sum").click(function(){
+        $.get("/ajax/", function(ret){
+            $('#result').html(ret)
+        })
+      });
+    });
+
+
+</script>
 
 
 

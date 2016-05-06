@@ -25,7 +25,42 @@ urlpatterns = [
     
 
 
-    url(r'^sq/',view_views.sq),
+
+    url(r'^ajax/',view_views.ajax_index),
+    url(r'^ajax/sq/',view_views.ajax_sq),
+    url(r'^ajax/dq/',view_views.ajax_dq),
+    url(r'^ajax/xq/',view_views.ajax_xq),
+    url(r'^ajax/nq/',view_views.ajax_nq),
+    url(r'^ajax/bf/',view_views.ajax_bf),
+    url(r'^ajax/sw/',view_views.ajax_sw),
+    url(r'^ajax/tz/',view_views.ajax_tz),
+    url(r'^ajax/hp/',view_views.ajax_hp),
+    url(r'^ajax/nt/',view_views.ajax_nt),
+    url(r'^ajax/df/',view_views.ajax_df),
+    url(r'^ajax/fs/',view_views.ajax_fs),
+    url(r'^ajax/xl/',view_views.ajax_xl),
+    url(r'^ajax/ds/',view_views.ajax_ds),
+    url(r'^ajax/gz/',view_views.ajax_gz),
+    url(r'^ajax/hl/',view_views.ajax_hl),
+    url(r'^ajax/sj/',view_views.ajax_sj),
+    url(r'^ajax/mz/',view_views.ajax_mz),
+    url(r'^ajax/nl/',view_views.ajax_nl),
+    url(r'^ajax/gk/',view_views.ajax_gk),
+    url(r'^ajax/dc/',view_views.ajax_dc),
+    url(r'^ajax/wgs/',view_views.ajax_wgs),
+    url(r'^ajax/hjkfq/',view_views.ajax_hjkfq),
+    url(r'^ajax/sha_xi/',view_views.ajax_sha_xi),
+    url(r'^ajax/san_xiang/',view_views.ajax_san_xiang),
+
+
+
+
+
+
+
+
+
+    # url(r'^sq/',view_views.sq),
     url(r'^dq/',view_views.dq),
     url(r'^xq/',view_views.xq),
     url(r'^nq/',view_views.nq),
