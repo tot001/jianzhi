@@ -19,14 +19,18 @@ from view import views as view_views
 from upload import views as upload_views
 urlpatterns = [
     url(r'^$',view_views.index), 
+    url(r'^ajax/index/',view_views.ajax_index),
+
     
+
+
+
 
     url(r'^admin/', admin.site.urls),
     
 
 
 
-    url(r'^ajax/',view_views.ajax_index),
     url(r'^ajax/sq/',view_views.ajax_sq),
     url(r'^ajax/dq/',view_views.ajax_dq),
     url(r'^ajax/xq/',view_views.ajax_xq),
@@ -60,13 +64,10 @@ urlpatterns = [
 
 
 
-    # url(r'^sq/',view_views.sq),
+    url(r'^sq/',view_views.sq),
     url(r'^dq/',view_views.dq),
     url(r'^xq/',view_views.xq),
     url(r'^nq/',view_views.nq),
-    url(r'^wgs/',view_views.wgs),
-    url(r'^hjkfq/',view_views.hjkfq),
-    url(r'^hp/',view_views.hp),
     url(r'^nt/',view_views.nt),
     url(r'^df/',view_views.df),
     url(r'^fs/',view_views.fs),
@@ -79,19 +80,26 @@ urlpatterns = [
     url(r'^nl/',view_views.nl),
     url(r'^gk/',view_views.gk),
     url(r'^dc/',view_views.dc),
-    url(r'^sha_xi/',view_views.sha_xi),
-    url(r'^san_xiang/',view_views.san_xiang),
     url(r'^bf/',view_views.bf),
     url(r'^sw/',view_views.sw),
     url(r'^tz/',view_views.tz),
+    url(r'^hp/',view_views.hp),
+    url(r'^wgs/',view_views.wgs),
+    url(r'^hjkfq/',view_views.hjkfq),
+    url(r'^sha_xi/',view_views.sha_xi),
+    url(r'^san_xiang/',view_views.san_xiang),
+
+
+    
 
 
     url(r'^search/',view_views.search),
-    # url(r'^search/$',vie_viebaiws.search_page
-    # url(r'^\d+/search',inside_view_views.inside_view),
+    url(r'^ajax/search/',view_views.ajax_search),
+    
+    
+    
 
-    
-    
+
     url(r'^upload/',upload_views.get_name),
 
     
@@ -99,29 +107,5 @@ urlpatterns = [
     url(r'^in/',view_views.inside_view),
 
 
-    # url(r'^sq/\d+/',inside_view_views.sq),
-    # url(r'^dq/\d+/',inside_view_views.dq),
-    # url(r'^xq/\d+/',inside_view_views.xq),
-    # url(r'^nq/\d+/',inside_view_views.nq),
-    # url(r'^wgs/\d+/',inside_view_views.wgs),
-    # url(r'^hjkfq/\d+/',inside_view_views.hjkfq),
-    # url(r'^hp/\d+/',inside_view_views.hp),
-    # url(r'^nt/\d+/',inside_view_views.nt),
-    # url(r'^df/\d+/',inside_view_views.df),
-    # url(r'^fs/\d+/',inside_view_views.fs),
-    # url(r'^xl/\d+/',inside_view_views.xl),
-    # url(r'^ds/\d+/',inside_view_views.ds),
-    # url(r'^gz/\d+/',inside_view_views.gz),
-    # url(r'^hl/\d+/',inside_view_views.hl),
-    # url(r'^sj/\d+/',inside_view_views.sj),
-    # url(r'^mz/\d+/',inside_view_views.mz),
-    # url(r'^nl/\d+/',inside_view_views.nl),
-    # url(r'^gk/\d+/',inside_view_views.gk),
-    # url(r'^dc/\d+/',inside_view_views.dc),
-    # url(r'^sha_xi/\d+/',inside_view_views.sha_xi),
-    # url(r'^san_xiang/\d+/',inside_view_views.san_xiang),
-    # url(r'^bf/\d+/',inside_view_views.bf),
-    # url(r'^sw/\d+/',inside_view_views.sw),
-    # url(r'^tz/\d+/',inside_view_views.tz),
 
 ]

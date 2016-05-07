@@ -10,389 +10,219 @@ import os.path
 import datetime
 import time
 
-# Create your views here.
+# 首页
 def index(request):
-            limit = 20
+            # limit = 20
             objects = post_jianzhi.objects.all()[::-1]
+            db = objects[:1]
+            forajax = "index"
 
-            p = Paginator(objects,limit)
-            page = request.GET.get('page')
-            
-            try:
-                db = p.page(page)
-            except PageNotAnInteger:
-                db = p.page(1)
-            except EmptyPage:
-                db = p.page(p.num_pages);
+            # p = Paginator(objects,limit)
+            # page = request.GET.get('page')    p.page(1)
+    
+            # except PageNotAnInteger:
+            #     db = p.page(1)
+            # except EmptyPage:
+            #     db = p.page(p.num_pages);
 
-            return render(request, 'index2.html',{'db': db})
+            return render(request, 'index_ajax.html',{'db': db,'forajax':forajax})
 
+
+#aJax 首页
 def ajax_index(request):
-            objects = post_jianzhi.objects.all()[::-20]
-            limit = len(objects)
-            p = Paginator(objects,limit)
-            page = request.GET.get('page')
-            
-            try:
-                db = p.page(page)
-            except PageNotAnInteger:
-                db = p.page(1)
-            except EmptyPage:
-                db = p.page(p.num_pages);
+            objects = post_jianzhi.objects.all()[::-1]
+            db = objects[1:]
+            if len(db) == 0:
+                return render(request,'EmptyPage.html')
+            else:
+                return render(request, 'ajax.html',{'db': db})
 
+            # except PageNotAnInteger:
+            #     db = p.page(1)
+            # except EmptyPage:
+            #     db = p.page(p.num_pages);
+
+            
+
+
+
+
+
+
+
+
+#ajax 区域
+def ajax_sq(request):
+        objects = list(post_jianzhi.objects.filter(area__exact="sq"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
             return render(request, 'ajax.html',{'db': db})
 
-
-
-
-
-
-
-
-
-
-
-def ajax_sq(request):
-        ajax = sq
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="sq"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
-
 def ajax_dq(request):
-        ajax = dq
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="dq"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="dq"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 
 def ajax_xq(request):
-        ajax = xq
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="xq"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="xq"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 
 def ajax_nq(request):
-        ajax = nq
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="nq"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="nq"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_wgs(request):
-        ajax = wgs
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="wgs"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="wgs"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_hjkfq(request):
-        ajax = hjkfq
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="hjkfq"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="hjkfq"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_hp(request):
-        ajax = hp
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="hp"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="hp"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_nt(request):        
-        ajax = nt
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="nt"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="nt"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_df(request):
-        ajax = df
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="df"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="df"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_fs(request):
-        ajax = fs
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="fs"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="fs"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_xl(request):
-        ajax = xl
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="xl"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="xl"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_ds(request):
-        ajax = ds
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="ds"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="ds"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_gz(request):
-        ajax = gz
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="gz"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="gz"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_hl(request):
-        ajax = hl
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="hl"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="hl"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_sj(request):
-        ajax = sj
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="sj"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="sj"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_mz(request):
-        ajax = mz
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="mz"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="mz"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_nl(request):
-        ajax = nl
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="nl"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="nl"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_gk(request):
-        ajax = gk
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="gk"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="gk"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_dc(request):
-        ajax = dc
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="dc"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="dc"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_sha_xi(request):
-        ajax = sha_xi
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="sha_xi"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="sha_xi"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_san_xiang(request):
-        ajax = san_xiang
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="san_xiang"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="san_xiang"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_bf(request):
-        ajax = bf
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="bf"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="bf"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_sw(request):
-        ajax = sw
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="sw"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
+        objects = list(post_jianzhi.objects.filter(area__exact="sw"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 def ajax_tz(request):
-        ajax = tz
-        limit = 20
-        objects = list(post_jianzhi.objects.filter(area__exact="tz"))[::-20]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'ajax.html',{'db':db,'ajax':ajax})
-
-
+        objects = list(post_jianzhi.objects.filter(area__exact="tz"))[::-1]
+        db = objects[20:]
+        if len(db) == 0:
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request, 'ajax.html',{'db': db})
 
 
 
@@ -410,321 +240,154 @@ def ajax_tz(request):
 
 
 #各区过滤
-# def sq(request):
-#         limit = 2
-#         objects = list(post_jianzhi.objects.filter(area__exact="sq"))[::-1]
-#         p = Paginator(objects,limit)
-#         page = request.GET.get('page')
-
-#         try:
-#             db = p.page(page)
-#         except PageNotAnInteger:
-#             db = p.page(1)
-#         except EmptyPage:
-#             db = p.page(p.num_pages);
-#         return render(request,'index2_sq.html',{'db':db})
+def sq(request):
+        objects = list(post_jianzhi.objects.filter(area__exact="sq"))[::-1]
+        db = objects[:20]
+        forajax = "sq"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 
 def dq(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="dq"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_dq.html',{'db':db})
+        db = objects[:20]
+        forajax = "dq"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 
 def xq(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="xq"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_xq.html',{'db':db})
+        db = objects[:20]
+        forajax = "xq"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 
 def nq(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="nq"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_nq.html',{'db':db})
+        db = objects[:20]
+        forajax = "nq"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def wgs(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="wgs"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_wgs.html',{'db':db})
+        db = objects[:20]
+        forajax = "wgs"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def hjkfq(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="hjkfq"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_hjkfq.html',{'db':db})
+        db = objects[:20]
+        forajax = "hjkfq"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def hp(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="hp"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_hp.html',{'db':db})
+        db = objects[:20]
+        forajax = "hp"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def nt(request):        
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="nt"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_nt.html',{'db':db})
+        db = objects[:20]
+        forajax = "nt"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def df(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="df"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_df.html',{'db':db})
+        db = objects[:20]
+        forajax = "df"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def fs(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="fs"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_fs.html',{'db':db})
+        db = objects[:20]
+        forajax = "fs"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def xl(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="xl"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_xl.html',{'db':db})
+        db = objects[:20]
+        forajax = "xl"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def ds(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="ds"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_ds.html',{'db':db})
+        db = objects[:20]
+        forajax = "ds"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def gz(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="gz"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_gz.html',{'db':db})
+        db = objects[:20]
+        forajax = "gz"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def hl(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="hl"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_hl.html',{'db':db})
+        db = objects[:20]
+        forajax = "hl"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def sj(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="sj"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_sj.html',{'db':db})
+        db = objects[:20]
+        forajax = "sj"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def mz(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="mz"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_mz.html',{'db':db})
+        db = objects[:20]
+        forajax = "mz"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def nl(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="nl"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_nl.html',{'db':db})
+        db = objects[:20]
+        forajax = "nl"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def gk(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="gk"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_gk.html',{'db':db})
+        db = objects[:20]
+        forajax = "gk"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def dc(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="dc"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_dc.html',{'db':db})
+        db = objects[:20]
+        forajax = "dc"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def sha_xi(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="sha_xi"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_sha_xi.html',{'db':db})
+        db = objects[:20]
+        forajax = "sha_xi"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def san_xiang(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="san_xiang"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_san_xiang.html',{'db':db})
+        db = objects[:20]
+        forajax = "san_xiang"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def bf(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="bf"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_bf.html',{'db':db})
+        db = objects[:20]
+        forajax = "bf"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def sw(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="sw"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
-
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_sw.html',{'db':db})
+        db = objects[:20]
+        forajax = "sw"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
 def tz(request):
-        limit = 20
         objects = list(post_jianzhi.objects.filter(area__exact="tz"))[::-1]
-        p = Paginator(objects,limit)
-        page = request.GET.get('page')
+        db = objects[:20]
+        forajax = "tz"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+ 
 
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index2_tz.html',{'db':db})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -732,23 +395,48 @@ def tz(request):
 
 #搜索
 def search(request):
-        limit = 20
+        forajax = "search"
         kw = request.GET['user_search']
-        page = request.GET.get('page')
         objects = post_jianzhi.objects.filter(Q(title__icontains=kw)|Q(jian_jie__icontains=kw)|Q(di_zhi__icontains=kw))[::-1]
-        p = Paginator(objects,limit)
-        try:
-            db = p.page(page)
-        except PageNotAnInteger:
-            db = p.page(1)
-        except EmptyPage:
-            db = p.page(p.num_pages);
-        return render(request,'index.html',{'db':db,'kw':kw})
+        db = objects[:1]
+        return render(request,'index.html',{'db':db,'forajax':forajax,'kw':kw})
+ 
+
+#ajax 搜索
+def ajax_search(request):
+        kw = request.GET['user_search']
+        objects = post_jianzhi.objects.filter(Q(title__icontains=kw)|Q(jian_jie__icontains=kw)|Q(di_zhi__icontains=kw))[::-1]
+        db = objects[1:]
+        if len(db) == 0 :
+            return render(request,'EmptyPage.html')
+        else:
+            return render(request,'ajax.html',{'db':db})
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#内容
 def inside_view(request):
         page = request.GET['in']
         db = post_jianzhi.objects.filter(id=page)

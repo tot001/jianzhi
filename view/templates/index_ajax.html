@@ -148,7 +148,7 @@
 <script>
 	$(document).ready(function(){
       $("#sum").click(function(){
-        $.get("/ajax/", function(ret){
+        $.get("/ajax/{{ forajax }}/", function(ret){
             $('#result').html(ret)
         })
       });
