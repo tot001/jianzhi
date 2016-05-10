@@ -75,7 +75,7 @@ li{
 /*menus*/
 #menus-warp{
 	font-weight:bold;
-	box-shadow: 0 2px 9px rgba(100, 100, 100, 0.3);
+	box-shadow: 5px 2px 9px 10px rgba(100, 100, 100, 0.3);
 	background-color:#44B78B; /*#318E6A #44B78B #309c72*/
 	height: 60px;
 	font-size: 14px;
@@ -312,4 +312,38 @@ li{
   background: #fff;
   width: 7px;
   height: 7px;
+}
+
+
+/*wrapper*/
+	#wrapper {
+	position: absolute;
+	z-index: 1;
+	top: 50px;
+	bottom: 48px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
 }

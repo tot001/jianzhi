@@ -14,7 +14,7 @@ import time
 def index(request):
             # limit = 20
             objects = post_jianzhi.objects.all()[::-1]
-            db = objects[:1]
+            db = objects[:20]
             forajax = "index"
 
             # p = Paginator(objects,limit)
@@ -31,7 +31,7 @@ def index(request):
 #aJax 首页
 def ajax_index(request):
             objects = post_jianzhi.objects.all()[::-1]
-            db = objects[1:]
+            db = objects[20:]
             if len(db) == 0:
                 return render(request,'EmptyPage.html')
             else:

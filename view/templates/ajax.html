@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-</head>
-<body>
-<div id="con" class="auto">
+<ul id="con" class="auto">
 	{% for i in db %}
 			<div class="tb_one">
 				<a href="/in/?in={{ i.id }}">
@@ -18,6 +12,4 @@
 				</a>
 				</div>
 	{% endfor %}
-</div>
-</body>
-</html>
+</ul>
