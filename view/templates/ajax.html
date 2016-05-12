@@ -1,15 +1,14 @@
-<ul id="con" class="auto">
-	{% for i in db %}
-			<div class="tb_one">
-				<a href="/in/?in={{ i.id }}">
-					<h3 class="tb_h3">{{ i.title }}</h3>
-				<div class="tb_jq">
-					{{i.jing_er}}{{ i.day_hw }}
-					<p> {{ i.timer|timesince}}</p>
-				</div>
-					<div class="tb_dd">工作地址：{{ i.di_zhi }}</div>
-					<div class="tb_sj"> 工作时间：{{ i.shi_jian }} - {{ i.shi_jian2 }}</div>
-				</a>
-				</div>
-	{% endfor %}
-</ul>
+{% for i in db %}
+		<div class="tb_one">
+			<a href="/in/?in={{ i.id }}">
+				<h3 class="tb_h3">{{ i.title }}</h3>
+			<div class="tb_jq">
+				{{i.jing_er}}{{ i.day_hw }}
+				<p> {{ i.timer|timesince}}</p>
+			</div>
+				<div class="tb_dd">工作地址：{{ i.di_zhi }}</div>
+				<div class="tb_sj"> 工作时间：{{ i.shi_jian }} - {{ i.shi_jian2 }}</div>
+			</a>
+		</div>
+{% endfor %}
+

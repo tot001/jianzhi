@@ -13,7 +13,7 @@
 			        $("#list").hide();
 			        $(".swiper-container").hide();
 			        $('#list_pagination').hide();
-			        $("#wrapper").css("top","45px");
+			        $("#wrapper").css("top","63px");
 			    }
 			    if ($('#menus_header').show())
 			 	{
@@ -28,7 +28,7 @@
 			        $("#wrapper").css("top","120px");
 			    }else{
 			        $('#menus_header').hide();
-			        $("#wrapper").css("top","45px");
+			        $("#wrapper").css("top","63px");
 			    }
 				if ($('#list').show())
 				 {
