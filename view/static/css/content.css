@@ -68,8 +68,7 @@ body{
 /*tishi*/
 
 #con_tishi{
-/*	border-top: 2px solid #777272;
-	border-bottom: 2px solid  #777272; */
+	width: 100%;
 	box-shadow: 0 2px 9px rgba(100, 100, 100, 0.3);
 	font-size: 15px;
 	margin: .46875rem .46875rem 0 .46875rem;

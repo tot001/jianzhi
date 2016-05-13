@@ -114,7 +114,7 @@
 					<h3 class="tb_h3">{{ i.title }}</h3>
 				<div class="tb_jq">
 					{{i.jing_er}}{{ i.day_hw }}
-					<p> {{ i.timer|timesince}}</p>
+					<p> {{ i.timer|timesince}}前</p>
 				</div>
 					<div class="tb_dd">工作地址：{{ i.di_zhi }}</div>
 					<div class="tb_sj"> 工作时间：{{ i.shi_jian }} - {{ i.shi_jian2 }}</div>
@@ -125,23 +125,7 @@
 			</div>
 
 
-<!-- <div id="tb_page" class="auto">
-{% if db.has_previous %}
-	<a id="prev_page" href="?user_search={{ kw }}&page={{ db.previous_page_number }}">&lt; Prev</a>
-	{% endif %}
-{% for page_number in db.paginator.page_range %}
-	{% ifequal page_number db.number %}
-		{{ page_number }}
-	{% else %}
-		<a href="?user_search={{ kw }}&page={{ page_number }}">{{ page_number }}</a>
-	{% endifequal %}
-{% endfor %}
-	
-{% if db.has_next %}
-	<a id="next_page" href="?user_search={{ kw }}&page={{ db.next_page_number }}">Next &gt;</a>
-{% endif %}
-	
-</div> -->
+
 
 
 <p><span id='result'></span></p>
