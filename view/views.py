@@ -398,7 +398,7 @@ def search(request):
         forajax = "search"
         kw = request.GET['user_search']
         objects = post_jianzhi.objects.filter(Q(title__icontains=kw)|Q(jian_jie__icontains=kw)|Q(di_zhi__icontains=kw))[::-1]
-        db = objects[:1]
+        db = objects[:20]
         return render(request,'index.html',{'db':db,'forajax':forajax,'kw':kw})
  
 
@@ -406,7 +406,7 @@ def search(request):
 def ajax_search(request):
         kw = request.GET['user_search']
         objects = post_jianzhi.objects.filter(Q(title__icontains=kw)|Q(jian_jie__icontains=kw)|Q(di_zhi__icontains=kw))[::-1]
-        db = objects[1:]
+        db = objects[20:]
         if len(db) == 0 :
             return render(request,'EmptyPage.html')
         else:
