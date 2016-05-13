@@ -7,6 +7,9 @@
 	<link rel="stylesheet" href="{% static "css/jquery.cxcalendar.css"%}">
 	<link rel="stylesheet" href="{% static "css/upload.css" %}">
 	<link rel="stylesheet" href="{% static "css/index.css" %}">
+	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 	 <script src="{% static "js/upload.js"%}"></script>
 </head>
 <body>
@@ -14,151 +17,106 @@
 	</div>
 
 		
-	<div id="fb_main" class="auto">
+<div id="fb_main" class="auto">
 	<form method="post" action="." >
 	{% csrf_token %}  
-		<table id="fb_box">
+		<div id="fb_box">
 
-			<tr>
-			<th>
-					<i>*</i>
-				
-				职&nbsp;位&nbsp;
-				</th>
-				
-				<td>
+			<div class="txt_con">
+
+				<div class="txt_title">*职 位</div>
 
 					<div class="txt_line">
 						{{ form.title }}
 						<span>请输入</span>
-					</div>	
-				</td>
-					
-			</tr>
-
-			<tr>
-			<th>
-				 <i>*</i>
-			
-				招聘人数
-				</th>
-				
-				<td>
-					<div class="txt_line">
-					{{ form.zhao_ping }}
-					<span>请输入</span>
 					</div>
-					
-				</td>	
-			</tr>
+			</div>
 
+			<div class="txt_con">
 
-			<tr>
-			<th>
-				 <i>*</i>
-			
-				工资待遇
-				</th>
-				
-				<td>
+				<div class="txt_title">*招聘人数</div>
+
+					<div class="txt_line">
+						{{ form.zhao_ping }}
+						<span>请输入</span>
+					</div>
+			</div>	
+
+			<div class="txt_con">
+
+				<div class="txt_title">*工资待遇</div>
 
 					<div class="txt_line">
 						{{ form.jing_er }}
 						{{ form.day_hw}}
 						<span>请输入</span>
-					</div>	
-					
-				</td>
-			</tr>
-			<tr>
-			<th>
-				 <i>*</i>
-			
-				详细地址
-				</th>
-				
-				<td>
+					</div>
+			</div>	
+
+			<div class="txt_con">
+
+				<div class="txt_title">*详细地址</div>
+
 					<div class="txt_line">
 						 {{ form.area}}
 						 {{ form.di_zhi }}
-						 <span>请输入</span>
-					</div>	
-					
-				</td>
-			</tr>
+						<span>请输入</span>
+					</div>
+			</div>
 
-			<tr>
-			<th>
-				 <i>*</i>
-			
-				结算方式 
-				</th>
-				
-				<td>
+			<div class="txt_con">
+
+				<div class="txt_title">*结算方式 </div>
+
 					<div class="txt_line">
 						 {{ form.jie_suan }}
-					</div>	
-					
-				</td>
-			</tr>
+					</div>
+			</div>
 
-			<tr>
-			<th>
-				 <i>*</i>
-			
-				工作时间
-				</th>
-				<td>
-					<div class="txt_line">
-					从 {{ form.shi_jian }} 至
-					{{ form.shi_jian2 }}
-					<span>请输入</span>
-					</div>	
-					
-				</td>
-			</tr>
+			<div class="txt_con">
 
+				<div class="txt_title">*联系方式</div>
 
-						
-			<tr>
-			<th>
-				 <i>*</i>
-			
-				联系方式
-				</th>
-				
-				<td>
 					<div class="txt_line">
 						 {{ form.lxfs }}
-						 <span>请输入</span>
-					</div>	
-				</td>
-				
-			</tr>
+						<span>请输入</span>
+					</div>
+			</div>
 
-			<tr>
-			<th>
-				 <i>*</i>
-			
-				工作简介
-				</th>
-				
-				<td>
+			<div class="txt_con sj">
+
+				<div class="txt_title" id="txt_title_sj">*开始时间</div>
+
+					<div class="txt_line_sj">
+						{{ form.shi_jian }}  
+						<span>请输入</span>
+					</div>
+			</div>
+
+			<div class="txt_con sj">
+
+				<div class="txt_title" id="txt_title_sj">*结束时间</div>
+
+					<div class="txt_line_sj">
+						{{ form.shi_jian2}}
+						<span>请输入</span>
+					</div>
+			</div>
+
+			<div class="txt_con">
+
+				<div class="txt_title">*工作简介</div>
+
 					<div class="txt_line">
 						{{ form.jian_jie }}
-						{{ form.timer }}
-						{{ form.date_time}}
 						<span>请输入</span>
-					</div>	
-				</td>
-				
-			</tr>
+					</div>
+			</div>
 
-			<tr>
-				<th>&nbsp;</th>
-			<td> 
+
 			<script src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
 			<script src="{% static "js/jquery.cxcalendar.min.js" %}"></script>
+			<script src="{% static "js/jquery.cxcalendar.js" %}"></script>
 			<script src="{% static "js/jquery.cxcalendar.languages.js" %}"></script>
 			<script type="text/javascript">
 			var dd = new Date();
@@ -166,13 +124,11 @@
 			$('#id_shi_jian').cxCalendar();
 			$('#id_shi_jian2').cxCalendar();
 			</script>
-				<input type="submit" value="免费发布"id="txt_tijiao" >
-				</form>				
-			</td>
-			
-				
-			</tr>
-		</table>
-	</div>
+				<input type="submit" value="发 布"id="txt_tijiao" >
+</div>
+
+	</form>
+</div>
+
 </body>
 </html>

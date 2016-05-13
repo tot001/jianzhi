@@ -4,34 +4,54 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Content</title>
+	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "css/content.css" %}">
 </head>
 <body>
+<div id="con_head">
+	<a href="/"><img src="{% static "images/head.png" %}" alt=""></a>
+	<div id="head_title">
+		<p>中山高校兼职网</p>
+	</div>
+</div>
 
-	<div class="auto" id="con">
-		<dl>
-					<dt>职位:</dt>
-					<dd></dd>
-					{%for i in db%} 
-						{{ i.title }} 
-					{%endfor%}
+<div id="con_title" class="auto">
+		<dl>		
+			<dd>
+			{%for i in db%} 
+				{{ i.title }} 
+			{%endfor%}
+			</dd>
 		</dl>
-		<dl>
-					<dt>招聘人数:</dt>
-					<dd>1</dd>
-		</dl>	
+		<div id="sj_cs">
+			<p>{% for i in db%}
+				{{ i.timer|date:"Y年n月j日"}}
+				{% endfor %}</p>
+		</div>
+</div>
+
+<div  id="con" class="auto">
+
 		<dl>
 					<dt>工资待遇:</dt>
 					<dd>{% for i in db %}
 						{{ i.jing_er }}
 						{{i.day_hw}}
 						{% endfor %}</dd>
-		</dl>	
+		</dl>
 		<dl>
-					<dt>工作强度:</dt>
+					<dt>招聘人数:</dt>
 					<dd>{% for i in db %}
-						{{i.jing_er}}
+						{{i.zhao_ping}}
+						{% endfor %}人</dd>
+		</dl>	
+	
+		<dl>
+					<dt>结算方式:</dt>
+					<dd>{% for i in db %}
+						{{i.jie_suan}}
 						{% endfor %}</dd>
 		</dl>	
 		<dl>
@@ -53,20 +73,31 @@
 						{{ i.lxfs }}
 						{% endfor %}</dd>
 		</dl>
+	</div>
+
+	<div id="con_inner" class="auto">
+	</div>
+
+
+<div id="con_tishi">
+	<img src="{% static "images/logo.jpg" %}" alt="">		
+	<p>
+ 		高校联盟提醒您：切勿相信押金、服装费、报名费、体检费、要求购买冲卡等。均有骗子嫌疑如果发现，联系公众号客服电话举报有重酬！
+ 	</p> 
+</div>
+
+<!-- <div id="con_dis"><p id="con_dis_p">展开信息</p></div>
+<script src="{% static "js/content.js" %}"></script> -->
+
+
+<div id="con_jian_jie" class="auto">
 		<dl>
 					<dt>工作简介:</dt>
 					<dd>{% for i in db %}
 						{{ i.jian_jie }}
 						{% endfor %}</dd>
-		</dl>									
-		<dl>
-					<dt></dt>
-		</dl>				
-	</div>
+		</dl>	
+</div>
 
-
-
-	<div id="con_inner" class="auto">
-	</div>
 </body>
 </html>
