@@ -92,10 +92,14 @@
 
 <div id="con_jian_jie" class="auto">
 		<dl>
-					<dt>工作简介:</dt>
-					<dd>{% for i in db %}
+					<dt>工作简介</dt>
+					<dd>
+					<section>
+					{% for i in db %}
 						{{ i.jian_jie }}
-						{% endfor %}</dd>
+						{% endfor %}
+					</section>
+					</dd>
 		</dl>	
 </div>
 
