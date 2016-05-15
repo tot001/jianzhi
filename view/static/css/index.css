@@ -51,7 +51,7 @@ li{
 	width: 20%;
 	height: 30px;
 	background: #44B78B; /*rgb(146,203,216)*/
-	font-size: 0.9375rem;
+	font-size: 0.9375em;
 	border: 0;
     text-align: center;
     border-radius:3px;
@@ -120,7 +120,7 @@ li{
 	padding-bottom: 5px;
 }
 #list a {
-	font-size:0.9375rem;
+	font-size:0.9375em;
 	white-space: nowrap;
 	display: inline-block;
 	color: #fff;
@@ -156,17 +156,22 @@ li{
 	padding-right:10px;
 	float: right;
 	color: #A00729;
+	font-size: 0.9375em;
+
 }
+
 #con .tb_dd{
 	padding-left: 10px;
-	font-size: 0.9375rem;
+	font-size: 0.9375em;
 	padding-bottom: 5px;
 }
 #con .tb_sj{
 	padding-left: 10px;
+	font-size: 0.8125em;
 }
+
 #con .tb_ti {
-	font-size: 0.9375rem;
+	font-size: 0.9375em;
 	padding-top: 5px;
 }
 #con a{
