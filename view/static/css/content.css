@@ -1,6 +1,5 @@
 body{
 	font-family: "微软雅黑";
-	font-size: 100%;
 }
 /*head*/
 #con_head{
@@ -11,14 +10,15 @@ body{
     font-family:"微软雅黑";
 }
 #con_head a img{
-	padding-top: 4px;
+	padding-top: 1%;
     height: 25px;
 }
 #head_title {
+	padding-top: 1%;
     float: right;
     color: #fff;
     height: 25px;
-    font-size: 131.3%;
+    font-size: 1.375rem;
     width: 72%;
 }
 
@@ -29,18 +29,18 @@ body{
 	height: 50px;
 }
 #con_title dl {
-	font-size: 15px;
+	font-size: 0.9375rem;
 	padding-left: 10px;
 
 }
 #con_title dl dd{
 	padding-top: 5px;
-	font-size: 18px;
+	font-size: 1.125rem;
 	color: #777272;
 }
 #sj_cs{
 	padding-top: 10px;
-	font-size: 15px;
+	font-size: 0.9375rem;
 	padding-left: 10px;
 }
 /*con*/
@@ -53,7 +53,7 @@ body{
 	float: left;
 	width: 80px;
 	color: #777272;
-	padding-left: 10px;
+	padding-left: 4%;
 }
 #con dd {
 
@@ -68,24 +68,24 @@ body{
 /*tishi*/
 
 #con_tishi{
+	margin-top: 3%;
 	width: 100%;
 	box-shadow: 0 2px 9px rgba(100, 100, 100, 0.3);
-	font-size: 15px;
-	margin: .46875rem .46875rem 0 .46875rem;
+	font-size: 0.9375rem;
 	overflow: hidden;
 }
 #con_tishi img{
-	float: left;
+	padding: 2% 0 0 2%;
 	width: 50px;
 	height: 50px;
 }
 #con_tishi p {
 	width: 80%;
-	padding-bottom: 5px;
+	padding:2% 2% 2% 0;
 	float: right;
 	color: #555;
     line-height:25px;
-    font-size:15px;
+    font-size:0.9375rem;
 }
 #con_dis{
 	display: inline-block;
@@ -94,14 +94,27 @@ body{
 	text-align: center;
 }
 #con_dis_p{
-	font-size: 5px;
+	font-size: 0.3125rem;
 }
 /*jian_jie*/
 #con_jian_jie {
+	height: 226px;
+	margin-top: 3%;
 	padding-top: 5px;
 	border-top:1px solid #CECECE;
-   color: #777272;
+ 	color: #777272;
 }
 #con_jian_jie dt {
+	font-size: 0.9375rem;
+	padding-left:5%;
+	height: 45px;
+	line-height: 40px;
 	color:#000000;
+	background-color: rgba(227, 236, 228, 0.12);
+}
+#con_jian_jie dd section{
+	line-height: 1.9em;
+    font-size: 0.9375rem;
+    padding: 0 18px;
+
 }
