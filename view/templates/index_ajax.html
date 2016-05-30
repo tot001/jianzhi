@@ -59,10 +59,12 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 			<i></i>
 		</li>
 
+		<a href="/">
 		<li id="category_hide">
-			<a href="/"><span style="color:#fff" >首页</span></a>
+			<span style="color:#fff">首页</span>
 			<i></i>
 		</li>
+		</a>
 
 		<li id="search_hide">
 			<span>搜索</span>
@@ -78,44 +80,44 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 
 
 
-	<div class="swiper-container">
+<div class="swiper-container">
 	<div id="list" class="swiper-wrapper auto">
-
 		<div class="swiper-slide">
 			<ul id="list_area">				
-				<li><a href="/san_xiang">三乡</a></li>
-				<li><a href="/bf">板芙</a></li>
-				<li><a href="/sw">神湾</a></li>
-				<li><a href="/tz">坦洲</a></li>
-				<li><a href="/wgs">五桂山</a></li>
-				<li><a href="/hjkfq">开发区</a></li>
-				<li><a href="/">全部</a></li>
+				
+				<a href="/san_xiang"><li>三乡</li></a>
+				<a href="/bf"><li>板芙</li></a>
+				<a href="/sw"><li>神湾</li></a>
+				<a href="/tz"><li>坦洲</li></a>
+				<a href="/wgs"><li>五桂山</li></a>
+				<a href="/hjkfq"><li>开发区</li></a>
+				<a href="/"><li>全部</li></a>
 			</ul>
 		</div>
 		<div class="swiper-slide ">
 			<ul id="list_area">			
-				<li><a href="/fs">阜沙</a></li>
-				<li><a href="/xl">小榄</a></li>
-				<li><a href="/ds">东升</a></li>
-				<li><a href="/gz">古镇</a></li>
-				<li><a href="/hl">横栏</a></li>
-				<li><a href="/sj">三角</a></li>
-				<li><a href="/mz">民众</a></li>
-				<li><a href="/nl">南朗</a></li>
-				<li><a href="/sha_xi">沙溪</a></li>
+				<a href="/fs"><li>阜沙</li></a>
+				<a href="/xl"><li>小榄</li></a>
+				<a href="/ds"><li>东升</li></a>
+				<a href="/gz"><li>古镇</li></a>
+				<a href="/hl"><li>横栏</li></a>
+				<a href="/sj"><li>三角</li></a>
+				<a href="/mz"><li>民众</li></a>
+				<a href="/nl"><li>南朗</li></a>
+				<a href="/sha_xi"><li>沙溪</li></a>
 			</ul>
 		</div>
 		<div class="swiper-slide ">
 			<ul id="list_area">
-				<li><a href="/sq">石岐</a></li>
-				<li><a href="/dq">东区</a></li>
-				<li><a href="/xq">西区</a></li>
-				<li><a href="/nq">南区</a></li>
-				<li><a href="/gk">港口</a></li>
-				<li><a href="/dc">大涌</a></li>
-				<li><a href="/hp">黄埔</a></li>
-				<li><a href="/nt">南头</a></li>
-				<li><a href="/df">东凤</a></li>	
+				<a href="/sq"><li>石岐</li></a>
+				<a href="/dq"><li>东区</li></a>
+				<a href="/xq"><li>西区</li></a>
+				<a href="/nq"><li>南区</li></a>
+				<a href="/gk"><li>港口</li></a>
+				<a href="/dc"><li>大涌</li></a>
+				<a href="/hp"><li>黄埔</li></a>
+				<a href="/nt"><li>南头</li></a>
+				<a href="/df"><li>东凤</li></a>	
 			</ul>	
 		</div>
 	</div>
@@ -166,12 +168,13 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 					{{i.jing_er}}{{ i.day_hw }}
 					<p> {{ i.timer|timesince}}前</p>
 				</div>
-					<div class="tb_dd">工作地址：{{ i.area }} {{ i.di_zhi }}</div>
+					<div class="tb_dd">工作地址：{{ i.area }} </div>
 					<div class="tb_sj"> 工作时间：{{ i.shi_jian }} - {{ i.shi_jian2 }}</div>
 				</a>
 			</div>
 		{% endfor %}
 		<div id="ajax"></div>
+		<div id="bm"></div>
 		<div id="scroller-pullUp">
 			<span id="up-icon" class="icon-double-angle-up pull-up-icon"></span>
 			<span id="pullUp-msg" class="pull-up-msg">上拉刷新</span>
