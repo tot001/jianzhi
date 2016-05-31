@@ -4,20 +4,20 @@ body{
 /*head*/
 #con_head{
 	width: 100%;
-    height: 30px;
+    height: 10%;
     padding: 10px 0 10px 0;
     background-color: #44B78B;
     font-family:"微软雅黑";
 }
 #con_head a img{
-	padding-top: 1%;
+	padding: 1% 0 1% 0;
     height: 25px;
 }
 #head_title {
-	padding-top: 1%;
+	padding: 1% 0 1% 0;
     float: right;
     color: #fff;
-    height: 25px;
+    height: 10%;
     font-size: 1.375rem;
     width: 72%;
 }
@@ -115,6 +115,5 @@ body{
 #con_jian_jie dd section{
 	line-height: 1.9em;
     font-size: 0.9375rem;
-    padding: 0 18px;
-
+    padding: 0 6%;
 }

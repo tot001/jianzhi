@@ -1,4 +1,4 @@
-html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, em{
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, none, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, em{
     margin: 0px;
     padding: 0px;
 }
@@ -8,13 +8,18 @@ body{
 *{
     outline: 0;
     font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
-    font-size: 87.5%;
 }
 input{
     border: 1px solid;
     border-color: #ccc #ccc #ccc #ccc;
     border-radius: 4px;
-    height: 25px;
+    height: 26px;
+}
+select{
+/*    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    background: url("../images/arrow.png") 95% no-repeat;*/
 }
 
 #upheader{
@@ -37,7 +42,7 @@ input{
 
 .txt_title{
     padding-left: 2%;
-    font-size: 85.5%;
+    font-size: 0.875em;
     color:#E47979;
     width: 20%;
     float: left;
@@ -50,12 +55,13 @@ input{
 .txt_line{
     float: right;
     width: 75%;
+
 }
 
 .txt_line input{
     margin-left: 5%;
-    width: 75%;
-    font-size: 14px;
+    width: 80%;
+    font-size: 0.875em;
     text-indent: 5px;
     margin: 3% 0 3% 0;
 }
@@ -63,6 +69,7 @@ input{
     font-size: 10px;
     color: #E47979;
     opacity:0;
+
 } 
 /*招聘*/
 #id_zhao_ping::-webkit-outer-spin-button {
@@ -76,21 +83,21 @@ input{
     resize: none;
     margin-top: 10px;
     height: 100px;
-    width: 75%;
+    width: 80%;
     padding:0px 5px 0px 5px;
 }
 /*工作地址*/
 #id_area{
-    margin-top: 3%;
-    width: 20%;
+    margin: 3% 0 3% 0;
+    width: 26%;
     border: 1px solid;
-    border-color: #ccc #ccc #ccc #ccc;
+    border-color: #ccc #ccc rgba(204, 204, 204, 0.8)  #ccc;
     padding: 0px 5px 0px 5px;
     border-radius: 4px;
     height: 28px;
     font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
     color: #585858;
-    font-size:10px;
+    font-size:0.875em;
 }
 #id_di_zhi{
     width: 52%;
@@ -126,7 +133,8 @@ input{
 }
 /*工资*/
 #id_day_hw{
-    width: 22%;
+    margin: 3% 0 3% 0;
+    width: 23%;
     border: 1px solid;
     border-color: #ccc #ccc #ccc #ccc;
     padding: 0px 5px 0px 5px;
@@ -134,10 +142,11 @@ input{
     height: 28px;
     font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
     color: #585858;
-    font-size:10px;
+    font-size:0.8125em;
 }
 #id_jing_er{
-    width: 50%;
+    width: 54%;
+    font-size: 0.8125em;
 }
 #id_jing_er::-webkit-outer-spin-button {
      -webkit-appearance: none;  
@@ -164,13 +173,13 @@ input{
 
 /*提交*/
 #txt_tijiao{
-    margin: 20px 0 20px 35%;
+    margin: 20px 35% 20px 35%;
     background: #44B78B;
     border: none;
     border-radius: 4px;
     color: #fff;
     cursor: pointer;
     height: 30px;
-    width: 100px;
+    width: 30%;
     font-weight: bold;
 }
