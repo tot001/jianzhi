@@ -29,16 +29,21 @@ function loaded () {
 
 	myScroll.on("scroll",function(){
 		if (this.y>50) {
+			setTimeout(function(){
 			window.location.reload();
+			},1500);
         }
-        if (this.y<(this.maxScrollY  - 150)) {
-       		$.get("/ajax/{{ forajax }}/", function(ret){
-            $('#ajax').html(ret)
-        	})
-        	myScroll.refresh();
+        if (this.y<(this.maxScrollY - 50)) {
+        	setTimeout(function(){
+       		$.get("/ajax/{{ ajax }}/", function(ret){
+       			setTimeout(function(){
+            $('#ajax').html(ret);
+            	    },50);
+            myScroll.refresh();
         	$("#scroller-pullUp").hide();
+        	});
+        	},1500);
 
-        	
 
         }
 	})
@@ -55,7 +60,7 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 <div id="menus-warp" class="auto">		
 	<ul>
 		<li id="area_hide">
-			<span>区域</span>
+			<span>{{ forajax }}</span>
 			<i></i>
 		</li>
 
@@ -177,7 +182,7 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 		<div id="bm"></div>
 		<div id="scroller-pullUp">
 			<span id="up-icon" class="icon-double-angle-up pull-up-icon"></span>
-			<span id="pullUp-msg" class="pull-up-msg">上拉刷新</span>
+			<span id="pullUp-msg" class="pull-up-msg">上拉加载</span>
 		</div>
 
 	</div>

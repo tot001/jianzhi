@@ -23,28 +23,31 @@
 function loaded () {
 
 	var myScroll;
-
+	var timer=null;
 
 
 	myScroll = new IScroll('#wrapper', { probeType:3,mouseWheel:true,click:true},100);
 
 	myScroll.on("scroll",function(){
 		if (this.y>50) {
+			setTimeout(function(){
 			window.location.reload();
-        }
-        if (this.y<(this.maxScrollY  - 150)) {
+			},1500);
+        };
+        if (this.y<(this.maxScrollY - 50) {
+        	timer=setTimeout(function(){
        		$.get("/ajax/search/?user_search={{ kw }}", function(ret){
             $('#ajax').html(ret)
         	})
         	myScroll.refresh();
         	$("#scroller-pullUp").hide();
-
+        	},1500);
         	
 
-        }
-	})
+        };
+	});
 
-}
+};
 
 
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);

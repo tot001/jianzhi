@@ -15,7 +15,8 @@ def index(request):
             # limit = 20
             objects = post_jianzhi.objects.all()[::-1]
             db = objects[:20]
-            forajax = "index"
+            ajax = "index"
+            forajax = "区域"
 
             # p = Paginator(objects,limit)
             # page = request.GET.get('page')    p.page(1)
@@ -25,7 +26,7 @@ def index(request):
             # except EmptyPage:
             #     db = p.page(p.num_pages);
 
-            return render(request, 'index_ajax.html',{'db': db,'forajax':forajax})
+            return render(request, 'index_ajax.html',{'db': db,'forajax':forajax,'ajax':ajax})
 
 
 #aJax 首页
@@ -243,126 +244,150 @@ def ajax_tz(request):
 def sq(request):
         objects = list(post_jianzhi.objects.filter(area__exact="石岐"))[::-1]
         db = objects[:20]
-        forajax = "sq"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "sq"
+        forajax = "石岐"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 
 def dq(request):
         objects = list(post_jianzhi.objects.filter(area__exact="东区"))[::-1]
         db = objects[:20]
-        forajax = "dq"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "dq"
+        forajax = "东区"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 
 def xq(request):
         objects = list(post_jianzhi.objects.filter(area__exact="西区"))[::-1]
         db = objects[:20]
-        forajax = "xq"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "xq"
+        forajax = "西区"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 
 def nq(request):
         objects = list(post_jianzhi.objects.filter(area__exact="南区"))[::-1]
         db = objects[:20]
-        forajax = "nq"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "nq"
+        forajax = "南区"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def wgs(request):
         objects = list(post_jianzhi.objects.filter(area__exact="五桂山"))[::-1]
         db = objects[:20]
-        forajax = "wgs"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "wgs"
+        forajax = "五桂山"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def hjkfq(request):
         objects = list(post_jianzhi.objects.filter(area__exact="火炬开发区"))[::-1]
         db = objects[:20]
-        forajax = "hjkfq"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "hjkfq"
+        forajax = "火炬开发区"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def hp(request):
         objects = list(post_jianzhi.objects.filter(area__exact="黄埔"))[::-1]
         db = objects[:20]
-        forajax = "hp"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "hp"
+        forajax = "黄埔"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def nt(request):        
         objects = list(post_jianzhi.objects.filter(area__exact="南头"))[::-1]
         db = objects[:20]
-        forajax = "nt"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "nt"
+        forajax = "南头"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def df(request):
         objects = list(post_jianzhi.objects.filter(area__exact="东凤"))[::-1]
         db = objects[:20]
-        forajax = "df"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "df"
+        forajax = "东凤"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def fs(request):
         objects = list(post_jianzhi.objects.filter(area__exact="阜沙"))[::-1]
         db = objects[:20]
-        forajax = "fs"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "fs"
+        forajax = "阜沙"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def xl(request):
         objects = list(post_jianzhi.objects.filter(area__exact="小榄"))[::-1]
         db = objects[:20]
-        forajax = "xl"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "xl"
+        forajax = "小榄"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def ds(request):
         objects = list(post_jianzhi.objects.filter(area__exact="东升"))[::-1]
         db = objects[:20]
-        forajax = "ds"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "ds"
+        forajax = "东升"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def gz(request):
         objects = list(post_jianzhi.objects.filter(area__exact="古镇"))[::-1]
         db = objects[:20]
-        forajax = "gz"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "gz"
+        forajax = "古镇"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def hl(request):
         objects = list(post_jianzhi.objects.filter(area__exact="横栏"))[::-1]
         db = objects[:20]
-        forajax = "hl"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "hl"
+        forajax = "横栏"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def sj(request):
         objects = list(post_jianzhi.objects.filter(area__exact="三角"))[::-1]
         db = objects[:20]
-        forajax = "sj"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "sj"
+        forajax = "三角"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def mz(request):
         objects = list(post_jianzhi.objects.filter(area__exact="民众"))[::-1]
         db = objects[:20]
-        forajax = "mz"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "mz"
+        forajax = "民众"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def nl(request):
         objects = list(post_jianzhi.objects.filter(area__exact="南朗"))[::-1]
         db = objects[:20]
-        forajax = "nl"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "nl"
+        forajax = "南朗"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def gk(request):
         objects = list(post_jianzhi.objects.filter(area__exact="港口"))[::-1]
         db = objects[:20]
-        forajax = "gk"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "gk"
+        forajax = "港口"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def dc(request):
         objects = list(post_jianzhi.objects.filter(area__exact="大涌"))[::-1]
         db = objects[:20]
-        forajax = "dc"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "dc"
+        forajax = "大涌"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def sha_xi(request):
         objects = list(post_jianzhi.objects.filter(area__exact="沙溪"))[::-1]
         db = objects[:20]
-        forajax = "sha_xi"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "sha_xi"
+        forajax = "沙溪"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def san_xiang(request):
         objects = list(post_jianzhi.objects.filter(area__exact="三乡"))[::-1]
         db = objects[:20]
-        forajax = "san_xiang"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "san_xiang"
+        forajax = "三乡"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def bf(request):
         objects = list(post_jianzhi.objects.filter(area__exact="板芙"))[::-1]
         db = objects[:20]
-        forajax = "bf"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "bf"
+        forajax = "板芙"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def sw(request):
         objects = list(post_jianzhi.objects.filter(area__exact="神湾"))[::-1]
         db = objects[:20]
-        forajax = "sw"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "sw"
+        forajax = "神湾"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
 def tz(request):
         objects = list(post_jianzhi.objects.filter(area__exact="坦洲"))[::-1]
         db = objects[:20]
-        forajax = "tz"
-        return render(request,'index_ajax.html',{'db':db,'forajax':forajax})
+        ajax = "tz"
+        forajax = "坦洲"
+        return render(request,'index_ajax.html',{'db':db,'forajax':forajax,'ajax':ajax})
  
 
 
@@ -395,11 +420,10 @@ def tz(request):
 
 #搜索
 def search(request):
-        forajax = "search"
         kw = request.GET['user_search']
         objects = post_jianzhi.objects.filter(Q(title__icontains=kw)|Q(jian_jie__icontains=kw)|Q(di_zhi__icontains=kw))[::-1]
         db = objects[:20]
-        return render(request,'index.html',{'db':db,'forajax':forajax,'kw':kw})
+        return render(request,'index.html',{'db':db,'kw':kw})
  
 
 #ajax 搜索

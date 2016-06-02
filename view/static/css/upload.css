@@ -1,6 +1,6 @@
 html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, none, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, em{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 body{
         overflow: auto;
@@ -15,12 +15,12 @@ input{
     border-radius: 4px;
     height: 26px;
 }
-select{
-/*    appearance:none;
+/*select{
+    appearance:none;
     -moz-appearance:none;
     -webkit-appearance:none;
-    background: url("../images/arrow.png") 95% no-repeat;*/
-}
+    background: url("../images/arrow.png") 95% no-repeat;
+}*/
 
 #upheader{
     width: 100%;
