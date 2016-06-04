@@ -16,7 +16,7 @@
 		<p>中山高校兼职网</p>
 	</div>
 </div>
-
+<div class="con_hd"></div>
 <div id="con_title" class="auto">
 		<dl>		
 			<dd>
@@ -86,18 +86,18 @@
  	</p> 
 </div>
 
-<!-- <div id="con_dis"><p id="con_dis_p">展开信息</p></div>
-<script src="{% static "js/content.js" %}"></script> -->
+<!-- <div id="con_dis"><p id="con_dis_p">展开信息</p></div> -->
+<script src="{% static "js/content.js" %}"></script>
 
 
 <div id="con_jian_jie" class="auto">
 		<dl>
 					<dt>工作简介</dt>
 					<dd>
-					<section>
+					<section id="s_content">
 					{% for i in db %}
-						{{ i.jian_jie }}
-						{% endfor %}
+						 {{ i.jian_jie }}
+					{% endfor %}
 					</section>
 					</dd>
 		</dl>	

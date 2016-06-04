@@ -169,9 +169,7 @@ window.onload=function()
 txt_tijiao.onclick=function ()
 
 {
-	
-	
-
+ 
 	if (id_title.value==""||id_title==null)
 	 {
 	 	id_title.focus();
@@ -230,8 +228,13 @@ txt_tijiao.onclick=function ()
 	  else
 	  {
 	  	return true;
-	  }  	  	  	  
+	  }  
+	  	
+	var content=document.getElementById('txt_introduction').value;
+	content=content.replace(/\n/g,'br');
+	document.getElementById("txt_introduction").value=content; 
 }
+
 
 
 }
