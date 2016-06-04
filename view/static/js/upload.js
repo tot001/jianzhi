@@ -169,6 +169,9 @@ window.onload=function()
 txt_tijiao.onclick=function ()
 
 {
+	var content=document.getElementById('txt_introduction').value;
+	content=content.replace(/\n/g,'br');
+	document.getElementById("txt_introduction").value=content; 
  
 	if (id_title.value==""||id_title==null)
 	 {
@@ -230,9 +233,6 @@ txt_tijiao.onclick=function ()
 	  	return true;
 	  }  
 	  	
-	var content=document.getElementById('txt_introduction').value;
-	content=content.replace(/\n/g,'br');
-	document.getElementById("txt_introduction").value=content; 
 }
 
 
