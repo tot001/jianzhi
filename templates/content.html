@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Content</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/content.css" %}">
+</head>
+<body>
+
+	<div class="auto" id="con">
+		<dl>
+					<dt>职位:</dt>
+					<dd></dd>
+					{%for i in db%} 
+						{{ i.title }} 
+					{%endfor%}
+		</dl>
+		<dl>
+					<dt>招聘人数:</dt>
+					<dd>1</dd>
+		</dl>	
+		<dl>
+					<dt>工资待遇:</dt>
+					<dd>{% for i in db %}
+						{{ i.jing_er }}
+						{{i.day_hw}}
+						{% endfor %}</dd>
+		</dl>	
+		<dl>
+					<dt>工作强度:</dt>
+					<dd>{% for i in db %}
+						{{i.jing_er}}
+						{% endfor %}</dd>
+		</dl>	
+		<dl>
+					<dt>工作地点:</dt>
+					<dd>{% for i in db%}
+					{{ i.di_zhi }}
+					{% endfor %}</dd>
+		</dl>	
+		<dl>
+					<dt>上班时间:</dt>
+					<dd>{%for i in db%} 
+						{{ i.shi_jian }}
+						{{ i.shi_jian2 }} 
+					{%endfor%}</dd>
+		</dl>			
+		<dl>
+					<dt>联系方式:</dt>
+					<dd>{% for i in db %}
+						{{ i.lxfs }}
+						{% endfor %}</dd>
+		</dl>
+		<dl>
+					<dt>工作简介:</dt>
+					<dd>{% for i in db %}
+						{{ i.jian_jie }}
+						{% endfor %}</dd>
+		</dl>									
+		<dl>
+					<dt></dt>
+		</dl>				
+	</div>
+
+
+
+	<div id="con_inner" class="auto">
+	</div>
+</body>
+</html>
