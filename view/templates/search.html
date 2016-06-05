@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" /> 
 	<link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
 	<script type="text/javascript" src="{% static "js/index.js"%}"></script>
 	<script type="text/javascript" src="{% static "js/iscroll.js"%}"></script>
@@ -22,7 +23,7 @@
 function loaded () {
 
 	var myScroll;
-
+	var timer=null;
 
 
 	myScroll = new IScroll('#wrapper', { probeType:3,mouseWheel:true,click:true},100);
@@ -32,23 +33,21 @@ function loaded () {
 			setTimeout(function(){
 			window.location.reload();
 			},1500);
-        }
-        if (this.y<(this.maxScrollY - 50)) {
-        	setTimeout(function(){
-       		$.get("/ajax/{{ ajax }}/", function(ret){
-       			setTimeout(function(){
-            $('#ajax').html(ret);
-            	    },50);
-            myScroll.refresh();
+        };
+        if (this.y<(this.maxScrollY - 50) {
+        	timer=setTimeout(function(){
+       		$.get("/ajax/search/?user_search={{ kw }}", function(ret){
+            $('#ajax').html(ret)
+        	})
+        	myScroll.refresh();
         	$("#scroller-pullUp").hide();
-        	});
         	},1500);
+        	
 
+        };
+	});
 
-        }
-	})
-
-}
+};
 
 
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
@@ -60,7 +59,7 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 <div id="menus-warp" class="auto">		
 	<ul>
 		<li id="area_hide">
-			<span>{{ forajax }}</span>
+			<span>区域</span>
 			<i></i>
 		</li>
 
@@ -76,7 +75,6 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 		</li>
 
 	</ul>
-
 	<script type="text/javascript" src="{% static "js/index.js"%}"></script>
 </div>
 
@@ -87,6 +85,7 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 
 <div class="swiper-container">
 	<div id="list" class="swiper-wrapper auto">
+
 		<div class="swiper-slide">
 			<ul id="list_area">				
 				
@@ -142,20 +141,18 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
     watchActiveIndex: true
   })
  </script>
-
+	
 
 <div id="menus_header" class="auto">
 	<div id="seracn">
-<!-- 		<a href="/upload/" id="fabu">发布信息</a> -->
+		<!-- <a href="/upload/" id="fabu">发布信息</a> -->
 		<form action="/search" method="get" class="ks">
 			<input type="search" class="keywork" name="user_search" placeholder="输入你想要的职位！">
 			<input type="submit" value="搜索" class="btn" >
 		</form>
 
 	</div>
-
 </div>
-
 
 
 <div id="wrapper" >
@@ -168,13 +165,13 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 		{% for i in db %}
 			<div class="tb_one">
 				<a href="/in/?in={{ i.id }}">
-					<h3 class="tb_h3">{{ i.title }}</h3>
+					<h4 class="tb_h3">{{ i.title }}</h4>
 				<div class="tb_jq">
 					{{i.jing_er}}{{ i.day_hw }}
 					<p> {{ i.timer|timesince}}前</p>
 				</div>
-					<div class="tb_dd">工作地址：{{ i.area }} </div>
-					<div class="tb_sj"> 工作时间：{{ i.shi_jian }} - {{ i.shi_jian2 }}</div>
+					<div class="tb_dd">工作地址：{{i.area}}</div>
+					<div class="tb_sj"> 工作时间： {{ i.shi_jian }} - {{ i.shi_jian2 }}</div>
 				</a>
 			</div>
 		{% endfor %}
@@ -182,11 +179,24 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 		<div id="bm"></div>
 		<div id="scroller-pullUp">
 			<span id="up-icon" class="icon-double-angle-up pull-up-icon"></span>
+			<span id="pullUp-msg" class="pull-up-msg">上拉刷新</span>
 		</div>
 
 	</div>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
